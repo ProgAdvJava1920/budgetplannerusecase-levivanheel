@@ -15,7 +15,7 @@ public class AccountMapperTest {
     private AccountMapper accountMapper = new AccountMapper();
 
     @Test
-    public void aValidLineIsMappedToAnAccount() {
+    public void aValidLineIsMappedToAnAccount() throws InvalidPaymentException {
         Account result = accountMapper.map(validLine);
         assertNotNull(result);
         assertEquals("Jos",result.getName());

@@ -9,19 +9,15 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class AccountMapper {
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
 
-    public Account map(String validLine) {
+    public Account map(String validLine) throws InvalidPaymentException {
         String[] lines = validLine.split(",");
-
+        if (lines.length != 7) {
+            throw new InvalidPaymentException("Invalid number of fields in line.");
+        }
         Account account = new Account();
-        account.setIBAN(lines[1]);
         account.setName(lines[0]);
-        account.setPayments(new ArrayList<>());
-
-        Payment payment = new Payment(LocalDateTime.parse(lines[3],FORMATTER), Float.parseFloat(lines[4]), lines[5], lines[6]);
-        account.getPayments().add(payment);
-
+        account.setIBAN(lines[1]);
         return account;
     }
 }
