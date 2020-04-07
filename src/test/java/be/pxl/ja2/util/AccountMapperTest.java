@@ -1,11 +1,11 @@
-package be.pxl.student.util;
+package be.pxl.ja2.util;
 
 import be.pxl.student.entity.Account;
 import be.pxl.student.entity.Payment;
-import org.junit.jupiter.api.Assertions;
+import be.pxl.student.util.AccountMapper;
+import be.pxl.student.util.InvalidPaymentException;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;

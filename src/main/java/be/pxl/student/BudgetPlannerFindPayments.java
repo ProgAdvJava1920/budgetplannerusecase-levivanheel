@@ -1,7 +1,6 @@
 package be.pxl.student;
 
 import be.pxl.student.entity.Account;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

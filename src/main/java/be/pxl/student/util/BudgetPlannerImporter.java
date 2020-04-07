@@ -1,6 +1,5 @@
 package be.pxl.student.util;
 
-import be.pxl.student.BudgetPlanner;
 import be.pxl.student.entity.Account;
 import be.pxl.student.entity.Payment;
 import org.apache.logging.log4j.LogManager;
@@ -9,15 +8,8 @@ import org.apache.logging.log4j.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
