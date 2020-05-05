@@ -2,6 +2,7 @@ package be.pxl.student.util;
 
 import be.pxl.student.entity.Payment;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -14,6 +15,6 @@ public class PaymentMapper {
         if (split.length != 7) {
             throw new InvalidPaymentException("Invalid number of fields in line.");
         }
-        return new Payment(LocalDateTime.parse(split[3], FORMATTER),Float.parseFloat(split[4]),split[5],split[6]);
+        return new Payment(LocalDate.parse(split[3], FORMATTER),Float.parseFloat(split[4]),split[5],split[6]);
     }
 }

@@ -26,6 +26,9 @@
 				<groupId>org.apache.tomee.maven</groupId>
 				<artifactId>tomee-maven-plugin</artifactId>
 				<version>8.0.1</version>
+				<configuration>
+					<tomeeHttpPort>8081</tomeeHttpPort>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

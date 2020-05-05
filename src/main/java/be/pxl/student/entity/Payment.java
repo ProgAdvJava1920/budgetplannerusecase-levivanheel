@@ -1,9 +1,15 @@
 package be.pxl.student.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="findPaymentById", query="SELECT a FROM Payment a WHERE a.id = :id"),
+}
+)
 public class Payment {
 
     @Id
@@ -13,33 +19,35 @@ public class Payment {
     private Account account;
     @ManyToOne
     private Account counterAccount;
-    private LocalDateTime date;
+    private LocalDate date;
     private float amount;
     private String currency;
     private String detail;
+    @OneToMany(mappedBy = "payment", cascade = CascadeType.MERGE)
+    private List<Label> label;
 
     public Payment() {
         // JPA ONLY
     }
 
-    public Payment(LocalDateTime date, float amount, String currency, String detail) {
+    public Payment(LocalDate date, float amount, String currency, String detail) {
         this.date = date;
         this.amount = amount;
         this.currency = currency;
         this.detail = detail;
     }
 
-    public Payment(Account account, Account counterAccount, LocalDateTime date, float amount, String currency, String detail) {
+    public Payment(Account account, Account counterAccount, LocalDate date, float amount, String currency, String detail) {
         this(date,amount,currency,detail);
         this.account = account;
         this.counterAccount = counterAccount;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -85,6 +93,14 @@ public class Payment {
 
     public Long getId() {
         return id;
+    }
+
+    public List<Label> getLabel() {
+        return label;
+    }
+
+    public void setLabel(List<Label> label) {
+        this.label = label;
     }
 
     @Override

@@ -28,8 +28,8 @@ public class Account {
         return IBAN;
     }
 
-    public void setIBAN(String IBAN) {
-        this.IBAN = IBAN;
+    public void setIBAN(String iban) {
+        this.IBAN = iban;
     }
 
     public String getName() {
@@ -52,7 +52,7 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", IBAN='" + IBAN + '\'' +
+                ", iban='" + IBAN + '\'' +
                 ", name='" + name + '\'' +
                 "}";
     }

@@ -1,12 +1,11 @@
 package be.pxl.student.rest.resources;
 
-import javax.ejb.Local;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class PaymentResource {
     private Long id;
     private String counterAccount;
-    private LocalDateTime date;
+    private LocalDate date;
     private float amount;
     private String currency;
     private String detail;
@@ -27,11 +26,11 @@ public class PaymentResource {
         this.counterAccount = counterAccount;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setData(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
